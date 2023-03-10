@@ -1,16 +1,23 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @project %>
+<br>
 
-<h3>Project's Comments</h3>
-<% @project.comments.each do |comment| %>
-  <%= render comment %>
+<h2>Project's Comments</h2>
+
+<ul>
+<% @project.comments.each do |comment| %> 
+  <li> <%= render comment %> </li>
 <% end %>
+</ul>
 
+<%= button_to "Add Comment", new_project_comment_path(@project), method: :get, class: "btn btn-primary" %>
 
+<br>
 <div>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
   <%= link_to "Back to projects", projects_path %>
-
-  <%= button_to "Delete this project", @project, method: :delete %>
 </div>
+
+<br>
+ <%= button_to "Delete this project", @project, method: :delete %>

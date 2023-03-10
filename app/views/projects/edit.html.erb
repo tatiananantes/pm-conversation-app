@@ -5,13 +5,16 @@
     <%= form.label :status %>
     <%= form.select :status, Project.statuses.keys.map { |s| [s.humanize, s] } %>
   </div>
+  <br>
 
+<div>
   <%= render "form", project: @project, form: form %>
+<div>
 
   <br>
 
   <div>
-    <%= link_to "Go to project", @project %> |
+    <%= link_to "Back to project", @project %> |
     <%= link_to "Back to projects", projects_path %>
   </div>
 <% end %>
