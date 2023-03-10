@@ -1,32 +1,30 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_project
   before_action :set_comment, only: %i[ show edit update destroy ]
 
-  # GET /comments or /comments.json
   def index
     @comments = Comment.all
   end
 
-  # GET /comments/1 or /comments/1.json
   def show
   end
 
-  # GET /comments/new
   def new
-    @comment = Comment.new
+    @project = Project.find(params[:project_id])
+    @comment = @project.comments.build
   end
 
-  # GET /comments/1/edit
   def edit
   end
 
-  # POST /comments or /comments.json
   def create
-    @comment = Comment.new(comment_params)
+    @comment = @project.comments.build(comment_params)
+    @comment.user = current_user
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully created." }
+        format.html { redirect_to project_url(@project), notice: "Comment was successfully created." }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -35,7 +33,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /comments/1 or /comments/1.json
   def update
     respond_to do |format|
       if @comment.update(comment_params)
@@ -48,7 +45,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1 or /comments/1.json
   def destroy
     @comment.destroy
 
@@ -58,14 +54,22 @@ class CommentsController < ApplicationController
     end
   end
 
+  def project_comments
+    @comments = @project.comments
+    render "index"
+  end
+
+  
   private
-    # Use callbacks to share common setup or constraints between actions.
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
+    
     def set_comment
       @comment = Comment.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:body, :user_id, :project_id, :created_at, :updated_at)
+      params.require(:comment).permit(:body, :user_id, :created_at, :updated_at).merge(project_id: params[:project_id])
     end
 end

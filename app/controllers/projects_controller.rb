@@ -20,7 +20,6 @@ class ProjectsController < ApplicationController
   def edit
   end
 
-  # POST /projects or /projects.json
   def create
     @project = current_user.projects.build(project_params)
 

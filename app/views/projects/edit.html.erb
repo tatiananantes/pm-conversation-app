@@ -1,10 +1,17 @@
 <h1>Editing project</h1>
 
-<%= render "form", project: @project %>
+<%= form_with(model: @project, local: true) do |form| %>
+ <div class="form-group">
+    <%= form.label :status %>
+    <%= form.select :status, Project.statuses.keys.map { |s| [s.humanize, s] } %>
+  </div>
 
-<br>
+  <%= render "form", project: @project, form: form %>
 
-<div>
-  <%= link_to "Show this project", @project %> |
-  <%= link_to "Back to projects", projects_path %>
-</div>
+  <br>
+
+  <div>
+    <%= link_to "Go to project", @project %> |
+    <%= link_to "Back to projects", projects_path %>
+  </div>
+<% end %>

@@ -1,26 +1,15 @@
 <div id="<%= dom_id comment %>">
   <p>
-    <strong>Body:</strong>
+    <strong>Comment:</strong>
     <%= comment.body %>
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= comment.user_id %>
+    <strong>Author:</strong>
+    <%= comment.user.email %>
   </p>
 
-  <p>
-    <strong>Project:</strong>
-    <%= comment.project_id %>
-  </p>
-
-  <p>
-    <strong>Created at:</strong>
-    <%= comment.created_at %>
-  </p>
-
-  <p>
-    <strong>Updated at:</strong>
+  <p> Date: 
     <%= comment.updated_at %>
   </p>
 

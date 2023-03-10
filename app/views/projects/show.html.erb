@@ -2,9 +2,15 @@
 
 <%= render @project %>
 
+<h3>Project's Comments</h3>
+<% @project.comments.each do |comment| %>
+  <%= render comment %>
+<% end %>
+
+
 <div>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
   <%= link_to "Back to projects", projects_path %>
 
-  <%= button_to "Destroy this project", @project, method: :delete %>
+  <%= button_to "Delete this project", @project, method: :delete %>
 </div>
