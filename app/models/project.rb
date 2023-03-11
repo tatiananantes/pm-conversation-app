@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   has_many :comments
   belongs_to :user
+  validates :name, presence: true
   
   before_create :set_default_status
   

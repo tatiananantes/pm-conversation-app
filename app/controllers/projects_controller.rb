@@ -7,7 +7,6 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  # shows a specific project and its details
   def show
   end
 
@@ -16,7 +15,6 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build
   end
 
-  # edits a project
   def edit
   end
 
@@ -34,7 +32,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1 or /projects/1.json
   def update
     respond_to do |format|
       if @project.update(project_params)

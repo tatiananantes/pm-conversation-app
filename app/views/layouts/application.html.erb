@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PmConversation</title>
+    <title>Project Management Conversation App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,8 +11,12 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+      <div style="float: right; margin: 10px;">
+        <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+      </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

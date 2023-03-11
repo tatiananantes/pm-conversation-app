@@ -37,7 +37,7 @@ gem "redis", "~> 4.0"
 # gem "bcrypt", "~> 3.1.7"
 
 gem 'devise'
-gem 'rspec', '~> 3.5'
+gem 'rspec-rails'
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -73,4 +73,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov'
 end
+
