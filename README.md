@@ -27,6 +27,10 @@ A: No, there are no specific design requirements for the conversation history pa
 Q: What is the minimum test coverage?
 A: >95% 
 
+## Demo video
+[You can watch a demo video of the app here](https://watch.screencastify.com/v/vFEWIoLF8KWY7zEr0DSY)
+
+
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/10349072/224578763-b77f04ee-776d-4f6d-8183-291fbb64b753.png)
 ![image](https://user-images.githubusercontent.com/10349072/224578832-eedb7023-b4e3-4e89-acce-aca24a64e18f.png)
