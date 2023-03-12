@@ -1,16 +1,5 @@
-<div id="<%= dom_id project %>">
-  <h1>
-    <%= project.name %>
-  </h1>
 
-  <p>
-    <strong>Status: </strong>
-    <%= project.status.humanize %>
-  </p>
+  <h2 class="card-title display-2"><%= project.name %></h2>
+  <p class="card-text pt-4"><strong>Status:</strong> <%= project.status.humanize %></p>
+  <p class="card-text text-justify pb-4"><strong>Description:</strong> <%= project.description %></p>
 
-  <p>
-    <strong>Description: </strong>
-    <%= project.description %>
-  </p>
-
-</div>

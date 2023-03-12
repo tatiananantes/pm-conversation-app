@@ -1,15 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>All Projects</h1>
+<div class=container>
+  <h1 class="display-1 text-center mb-4">All Projects</h1>
 
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Go to project", project %>
-    </p>
-  <% end %>
+    <% @projects.each do |project| %>
+
+    <%= content_tag :div, class: "card mb-20 ", style: "margin-bottom: 20px;" do %>
+      <%= content_tag :div, class: "card-body" do %>
+        <%= render project %>
+        <p>
+          <%= link_to "Go to project", project %>
+        </p>
+        <% end %>
+      <% end %>
+    <% end %>
+
+
+  <%= link_to "Create a new project", new_project_path, class: "btn btn-primary", role: "button" %>
+
 </div>
-
-<%= link_to "Create a new project", new_project_path %>
-

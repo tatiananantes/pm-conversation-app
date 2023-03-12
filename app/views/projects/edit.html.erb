@@ -1,20 +1,25 @@
-<h1>Editing project</h1>
+<div class="container-fluid pt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3 text-center pt-2">
+      <h1 class="display-5 mb-4">Editing project</h1>
 
-<%= form_with(model: @project, local: true) do |form| %>
- <div class="form-group">
-    <%= form.label :status %>
-    <%= form.select :status, Project.statuses.keys.map { |s| [s.humanize, s] } %>
+      <%= form_with(model: @project, local: true) do |form| %>
+      <div class="form-group">
+          <%= form.label :status %>
+          <%= form.select :status, Project.statuses.keys.map { |s| [s.humanize, s] } %>
+        </div>
+        <br>
+
+      <div>
+        <%= render "form", project: @project, form: form %>
+      <div>
+
+
+        <div class="mt-4">
+          <%= link_to "Back to project", @project %> |
+          <%= link_to "Back to projects", projects_path %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <br>
-
-<div>
-  <%= render "form", project: @project, form: form %>
-<div>
-
-  <br>
-
-  <div>
-    <%= link_to "Back to project", @project %> |
-    <%= link_to "Back to projects", projects_path %>
-  </div>
-<% end %>
+</div>     

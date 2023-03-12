@@ -1,24 +1,27 @@
-<%= form_with(model: [ @project, @comment ]) do |form| %>
-<%= form.hidden_field :user_id, value: current_user.id %>
-  <% if comment.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<div class="card">
+  <div class="card-body p-4">
+    <%= form_with(model: [ @project, @comment ]) do |form| %>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+      <% if comment.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
 
-      <ul>
-        <% comment.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-<br>
+          <ul>
+            <% comment.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div>
-    <%= form.label "Add your comment", style: "display: block" %>
-    <%= form.text_area :body %>
+      <div class="pt-2">
+        <%= form.label "Add your comment", class: "form-label"  %>
+        <%= form.text_area :body, class: "form-control rounded"%>
+      </div>
+      
+      <div class="form-group pt-4">
+        <%= form.submit class: "btn btn-primary rounded" %>
+      </div>
+    <% end %>
   </div>
-<br>
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div> 

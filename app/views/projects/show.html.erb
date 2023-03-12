@@ -1,26 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @project %>
-<br>
+<div class = "container">
+  <%= render @project %>
 
-<h2>Project's Comments</h2>
-
-<ul>
-<% @project.comments.each do |comment| %> 
-  <li> <%= render comment %> </li>
-  <% if current_user == comment.user %>
-      <%= link_to "Edit Comment", edit_project_comment_path(@project, comment) %>
-    <% end %>
+  <h2 class= "mb-4 display-6">Project's Comments</h2>
+  
+  <% @project.comments.each do |comment| %> 
+    <%= render comment %>
   <% end %>
-</ul>
+ 
+  <%= button_to "Add Comment", new_project_comment_path(@project), method: :get, class: "btn btn-primary btn-sm" %>
 
-<%= button_to "Add Comment", new_project_comment_path(@project), method: :get, class: "btn btn-primary" %>
+  <div class="mt-4">
+    <%= link_to "Back to projects", projects_path %>
+  </div>
 
-<br>
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
+  <div class="mt-4 btn-group gap-4 btn-group-horizontal" ">
+    <%= button_to "Edit this project", edit_project_path(@project), method: :get, class: "btn btn-secondary" %>
+    <%= button_to "Delete this project", @project, method: :delete, class: "btn btn-danger" %>
+  </div>
 </div>
-
-<br>
- <%= button_to "Delete this project", @project, method: :delete %>
