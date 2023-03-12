@@ -30,6 +30,9 @@ A: >95%
 ## Demo video
 [You can watch a demo video of the app here](https://watch.screencastify.com/v/vFEWIoLF8KWY7zEr0DSY)
 
+## Code Coverage
+<img width="823" alt="image" src="https://user-images.githubusercontent.com/10349072/224581206-898c011b-eda8-4713-9baa-4b62ce68b225.png">
+
 
 ## Screenshots
 ![image](https://user-images.githubusercontent.com/10349072/224578763-b77f04ee-776d-4f6d-8183-291fbb64b753.png)
