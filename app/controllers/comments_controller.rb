@@ -8,14 +8,16 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @project = Project.find(params[:project_id])
     @comment = @project.comments.build
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @comment = @project.comments.build(comment_params)
