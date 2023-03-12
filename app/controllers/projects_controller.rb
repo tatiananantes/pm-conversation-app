@@ -7,13 +7,15 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @project = current_user.projects.build
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @project = current_user.projects.build(project_params)
