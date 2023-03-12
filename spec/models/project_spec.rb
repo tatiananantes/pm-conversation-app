@@ -31,4 +31,23 @@ RSpec.describe Project, type: :model do
                                      })
     end
   end
+
+  describe '#owner?' do
+    let!(:user) { User.create(email: 'pepe@example.com', password: 'password') }
+    let(:project) { Project.create(name: 'Test Project', user: user) }
+    
+    context 'when the user owns the project' do
+      it 'returns true' do
+        expect(project.owner?(user)).to be true
+      end
+    end
+
+    context 'when the user does not own the project' do
+      let!(:other_user) { User.create(email: 'mary@example.com', password: 'password') }
+
+      it 'returns false' do
+        expect(project.owner?(other_user)).to be false
+      end
+    end
+  end
 end
