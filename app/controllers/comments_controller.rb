@@ -38,12 +38,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    @comment.destroy
-
-    redirect_to comments_url, notice: 'Comment was successfully destroyed.'
-  end
-
   def project_comments
     @comments = @project.comments
     render 'index'

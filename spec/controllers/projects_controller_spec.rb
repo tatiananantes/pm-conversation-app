@@ -70,4 +70,26 @@ RSpec.describe ProjectsController, type: :controller do
     end
   end
 
+  describe 'DELETE #destroy' do
+    before do
+      sign_in user
+    end
+  
+    it 'deletes the project' do
+      expect do
+        delete :destroy, params: { id: project.id }
+      end.to change { Project.count }.by(-1)
+    end
+  
+    it 'redirects to the projects index' do
+      delete :destroy, params: { id: project.id }
+      expect(response).to redirect_to(projects_url)
+    end
+  
+    it 'sets a flash notice message' do
+      delete :destroy, params: { id: project.id }
+      expect(flash[:notice]).to eq('Project was successfully destroyed.')
+    end
+  end
+
 end
